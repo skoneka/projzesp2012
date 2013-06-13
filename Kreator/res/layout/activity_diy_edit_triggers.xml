@@ -88,7 +88,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10" />
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
         </LinearLayout>
 
         <View
@@ -175,6 +177,7 @@
                 android:layout_alignParentTop="true"
                 android:text="WiFi"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
+
         </LinearLayout>
 
         <LinearLayout

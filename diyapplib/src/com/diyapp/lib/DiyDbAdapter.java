@@ -22,7 +22,7 @@ import android.util.Log;
  */
 public class DiyDbAdapter {
 	// increase version after modifying columns, clean and rebuild library AND project!
-	private static final int DATABASE_VERSION = 21;
+	private static final int DATABASE_VERSION = 22;
 
 	private static final String DATABASE_NAME = "data2";
 	private static final String DATABASE_TABLE = "diys";
@@ -65,6 +65,8 @@ public class DiyDbAdapter {
 	public static final String KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_SOUND = "action_soundprofile_param_profile_sound";//
 	public static final String KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_VIBRATIONS = "action_soundprofile_param_profile_vibrations";//
 	public static final String KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME = "action_soundprofile_param_volume";//
+	public static final String KEY_ACTION_NOTIFICATION_PARAM_WWW_TEXT = "action_notification_param_www_text";//
+	public static final String KEY_ACTION_NOTIFICATION_PARAM_WWW_SWITCH = "action_notification_param_www_switch";//
 	// TEMPLATE_actions: public static final String KEY_{uppercase} = "{lowercase}";//
 
 
@@ -88,6 +90,8 @@ public class DiyDbAdapter {
 			// TEMPLATE_triggers: KEY_{uppercase},//
 
 			// actions
+			KEY_ACTION_NOTIFICATION_PARAM_WWW_TEXT,// 
+			KEY_ACTION_NOTIFICATION_PARAM_WWW_SWITCH,// 
 			// TEMPLATE_actions: KEY_{uppercase},// 
 			KEY_ACTION_WIFI,//
 			KEY_ACTION_WIFI_PARAM_TURN_ON,//
@@ -139,6 +143,8 @@ public class DiyDbAdapter {
 			// TEMPLATE_triggers: + KEY_{uppercase} + " {dbtype} not null,"//
 
 			// actions
+			+ KEY_ACTION_NOTIFICATION_PARAM_WWW_TEXT + " text not null,"//
+			+ KEY_ACTION_NOTIFICATION_PARAM_WWW_SWITCH + " integer not null,"//
 			// TEMPLATE_actions: + KEY_{uppercase} + " {dbtype} not null,"//
 			+ KEY_ACTION_WIFI + " integer not null,"//
 			+ KEY_ACTION_WIFI_PARAM_TURN_ON + " integer not null,"//
@@ -263,6 +269,8 @@ public class DiyDbAdapter {
 		initialValues.put(KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_SOUND, 0);//
 		initialValues.put(KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_VIBRATIONS, 0);//
 		initialValues.put(KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME, 7);//
+		initialValues.put(KEY_ACTION_NOTIFICATION_PARAM_WWW_TEXT, "");//
+		initialValues.put(KEY_ACTION_NOTIFICATION_PARAM_WWW_SWITCH, 0);//
 		// TEMPLATE_actions: initialValues.put(KEY_{uppercase}, {default_value});//
 
 		return mDb.insert(DATABASE_TABLE, null, initialValues);
@@ -366,6 +374,8 @@ public class DiyDbAdapter {
 
 	public boolean updateDiyActions(
 			long rowId,
+			String action_notification_param_www_text,//
+			boolean action_notification_param_www_switch,//
 			// TEMPLATE_actions: {vartype} {lowercase},//
 			boolean action_wifi,
 			boolean action_wifi_param_turn_on,
@@ -405,6 +415,8 @@ public class DiyDbAdapter {
 		args.put(KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_SOUND, action_soundprofile_param_profile_sound ? 1 : 0);
 		args.put(KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_VIBRATIONS, action_soundprofile_param_profile_vibrations ? 1 : 0);
 		args.put(KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME, action_soundprofile_param_volume);
+		args.put(KEY_ACTION_NOTIFICATION_PARAM_WWW_TEXT, action_notification_param_www_text);
+		args.put(KEY_ACTION_NOTIFICATION_PARAM_WWW_SWITCH, action_notification_param_www_switch ? 1 : 0);
 		// TEMPLATE_actions: args.put(KEY_{uppercase}, {lowercase}{cmp});
 
 		return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;

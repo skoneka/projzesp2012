@@ -30,6 +30,8 @@ public class DiyEditActionsActivity extends Activity {
 	CheckBox maction_soundprofile_param_profile_vibrations;//
 	ToggleButton maction_soundprofile;//
 	SeekBar maction_soundprofile_param_volume;//
+	CheckBox maction_notification_param_www_switch;//
+	EditText maction_notification_param_www_text;//
 	// TEMPLATE: {field} m{lowercase};//
 	
 	Long mRowId;
@@ -65,6 +67,8 @@ public class DiyEditActionsActivity extends Activity {
 		maction_soundprofile_param_profile_vibrations = (CheckBox) findViewById(R.id.action_soundprofile_param_profile_vibrations);//
 		maction_soundprofile = (ToggleButton) findViewById(R.id.action_soundprofile);//
 		maction_soundprofile_param_volume = (SeekBar) findViewById(R.id.action_soundprofile_param_volume);//
+		maction_notification_param_www_switch = (CheckBox) findViewById(R.id.action_notification_param_www_switch);//
+		maction_notification_param_www_text = (EditText) findViewById(R.id.action_notification_param_www_text);//
 		// TEMPLATE: m{lowercase} = ({field}) findViewById(R.id.{lowercase});//
 	
 		populateFields();
@@ -103,6 +107,8 @@ public class DiyEditActionsActivity extends Activity {
 			maction_soundprofile_param_profile_vibrations.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_VIBRATIONS)));//
 			maction_soundprofile.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_SOUNDPROFILE)));//
 			maction_soundprofile_param_volume.setProgress( diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME)));//
+			maction_notification_param_www_switch.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_NOTIFICATION_PARAM_WWW_SWITCH)));//
+			maction_notification_param_www_text.setText(diy.getString(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_NOTIFICATION_PARAM_WWW_TEXT)));//
 			// TEMPLATE: m{lowercase}.{diyget}(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_{uppercase})));//
 		}
 	}
@@ -128,6 +134,9 @@ public class DiyEditActionsActivity extends Activity {
 	
 	private void saveState() {
 		mDbHelper.updateDiyActions(mRowId,
+				maction_notification_param_www_text.getText().toString(),//
+				maction_notification_param_www_switch.isChecked(),//
+				
 				// TEMPLATE: m{lowercase}.{retrieve}(),//
 				maction_wifi.isChecked(),//
 				maction_wifi_param_turn_on.isChecked(),//

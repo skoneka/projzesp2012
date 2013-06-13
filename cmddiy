@@ -3,11 +3,15 @@ adb shell am start -a android.intent.action.DELETE -d package:com.example.fakedi
 - xtr drawing
 
 - ssid
-- repeatable days
-- limit slider width ( fsck checkboxes)
+- repeatable days (triggers) : monday tue wed..
+- limit slider width ( fsck checkboxes) (zrobione)
 - www + checkbox notification
-- set number as int keyboard
+- set number as int keyboard (zrobione)
 - debugger wtf?
+- volume checkboxes broken
+
+
+add google_play_services_lib.jar to build path when com.google*gms import do not work!
 
 
 
@@ -72,3 +76,10 @@ adb shell am start -a android.intent.action.DELETE -d package:com.example.fakedi
 ./insert_diyaction.py action_notification ToggleButton 'setChecked( 1 == diy.getInt' 'isChecked'
 ./insert_diyaction.py action_notification_param_title EditText 'setText(diy.getString' 'getText().toString'
 ./insert_diyaction.py action_notification_param_text EditText 'setText(diy.getString' 'getText().toString'
+
+
+./insert_diyaction.py action_notification_param_www_switch CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
+./insert_diyaction.py action_notification_param_www_text EditText 'setText(diy.getString' 'getText().toString'
+
+./insert_DiyDbAdapter.py action_notification_param_www_text actions text '""' String ''
+./insert_DiyDbAdapter.py action_notification_param_www_switch actions integer 0 boolean ' ? 1 : 0'
