@@ -7,8 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-        
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +88,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="numberDecimal" />
-
         </LinearLayout>
 
         <View
@@ -153,13 +150,69 @@
                 android:layout_weight="1"
                 android:ems="10" />
         </LinearLayout>
-        
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/trigger_date_param_day1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day 1" />
+
+            <CheckBox
+                android:id="@+id/trigger_date_param_day2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day 2" />
+
+            <CheckBox
+                android:id="@+id/trigger_date_param_day3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day 3" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <CheckBox
+                android:id="@+id/trigger_date_param_day4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day 4" />
+
+            <CheckBox
+                android:id="@+id/trigger_date_param_day5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day 5" />
+
+            <CheckBox
+                android:id="@+id/trigger_date_param_day6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day 6" />
+         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <CheckBox
+                android:id="@+id/trigger_date_param_day7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day 7" />
+        </LinearLayout>
         <!-- spacer -->
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="2px"
             android:background="@drawable/i1x1" />
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -177,7 +230,6 @@
                 android:layout_alignParentTop="true"
                 android:text="WiFi"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
-
         </LinearLayout>
 
         <LinearLayout

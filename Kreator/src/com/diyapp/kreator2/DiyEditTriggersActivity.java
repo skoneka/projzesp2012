@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import android.widget.EditText;
@@ -32,6 +33,14 @@ public class DiyEditTriggersActivity extends Activity {
 	static TextView mtrigger_location_param_latitude;
 	static TextView mtrigger_location_param_longtitude;
 	EditText mtrigger_location_param_area;
+	CheckBox mtrigger_date_param_day1;//
+	CheckBox mtrigger_date_param_day2;//
+	CheckBox mtrigger_date_param_day3;//
+	CheckBox mtrigger_date_param_day4;//
+	CheckBox mtrigger_date_param_day5;//
+	CheckBox mtrigger_date_param_day6;//
+	CheckBox mtrigger_date_param_day7;//
+	// TEMPLATE: {field} m{lowercase};//
 
 	static double var_latitude = -1;
 	static double var_longtitude = -1;
@@ -60,12 +69,21 @@ public class DiyEditTriggersActivity extends Activity {
 		mtrigger_date_enabled = (ToggleButton) findViewById(R.id.trigger_date_enabled);
 		mtrigger_date_param_from = (TextView) findViewById(R.id.trigger_date_param_from);
 		mtrigger_date_param_to = (TextView) findViewById(R.id.trigger_date_param_to);
+		
 
 		mtrigger_location_enabled = (ToggleButton) findViewById(R.id.trigger_location_enabled);
 		mtrigger_location_param_latitude = (TextView) findViewById(R.id.trigger_location_param_latitude);
 		mtrigger_location_param_longtitude = (TextView) findViewById(R.id.trigger_location_param_longtitude);
 		mtrigger_location_param_area = (EditText) findViewById(R.id.trigger_location_param_area);
-
+		mtrigger_date_param_day1 = (CheckBox) findViewById(R.id.trigger_date_param_day1);//
+		mtrigger_date_param_day2 = (CheckBox) findViewById(R.id.trigger_date_param_day2);//
+		mtrigger_date_param_day3 = (CheckBox) findViewById(R.id.trigger_date_param_day3);//
+		mtrigger_date_param_day4 = (CheckBox) findViewById(R.id.trigger_date_param_day4);//
+		mtrigger_date_param_day5 = (CheckBox) findViewById(R.id.trigger_date_param_day5);//
+		mtrigger_date_param_day6 = (CheckBox) findViewById(R.id.trigger_date_param_day6);//
+		mtrigger_date_param_day7 = (CheckBox) findViewById(R.id.trigger_date_param_day7);//
+		// TEMPLATE: m{lowercase} = ({field}) findViewById(R.id.{lowercase});//
+		
 		// disable
 //		mtrigger_location_param_latitude
 //				.setVisibility(mtrigger_location_param_latitude.INVISIBLE);
@@ -153,6 +171,14 @@ public class DiyEditTriggersActivity extends Activity {
 					.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_DATE)));
 			mtrigger_date_param_from.setText(from_timedate);
 			mtrigger_date_param_to.setText(to_timedate);
+			mtrigger_date_param_day1.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_DATE_PARAM_DAY1)));//
+			mtrigger_date_param_day2.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_DATE_PARAM_DAY2)));//
+			mtrigger_date_param_day3.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_DATE_PARAM_DAY3)));//
+			mtrigger_date_param_day4.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_DATE_PARAM_DAY4)));//
+			mtrigger_date_param_day5.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_DATE_PARAM_DAY5)));//
+			mtrigger_date_param_day6.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_DATE_PARAM_DAY6)));//
+			mtrigger_date_param_day7.setChecked( 1 == diy.getInt(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_DATE_PARAM_DAY7)));//
+			// TEMPLATE: m{lowercase}.{diyget}(diy.getColumnIndexOrThrow(DiyDbAdapter.KEY_{uppercase})));//
 			
 
 			
@@ -184,6 +210,14 @@ public class DiyEditTriggersActivity extends Activity {
 		mDbHelper.updateDiyTriggers(
 				mRowId, //
 				// triggers
+				mtrigger_date_param_day1.isChecked(),//
+				mtrigger_date_param_day2.isChecked(),//
+				mtrigger_date_param_day3.isChecked(),//
+				mtrigger_date_param_day4.isChecked(),//
+				mtrigger_date_param_day5.isChecked(),//
+				mtrigger_date_param_day6.isChecked(),//
+				mtrigger_date_param_day7.isChecked(),//
+				// TEMPLATE: m{lowercase}.{retrieve}(),//
 				mtrigger_date_enabled.isChecked(),
 				mtrigger_date_param_from.getText().toString(),
 				mtrigger_date_param_to.getText().toString(),

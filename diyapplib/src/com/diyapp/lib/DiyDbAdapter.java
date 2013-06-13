@@ -22,7 +22,7 @@ import android.util.Log;
  */
 public class DiyDbAdapter {
 	// increase version after modifying columns, clean and rebuild library AND project!
-	private static final int DATABASE_VERSION = 22;
+	private static final int DATABASE_VERSION = 23;
 
 	private static final String DATABASE_NAME = "data2";
 	private static final String DATABASE_TABLE = "diys";
@@ -44,6 +44,13 @@ public class DiyDbAdapter {
 	public static final String KEY_TRIGGER_DATE_PARAM_TO = "trigger_date_param_to";//
 	public static final String KEY_TRIGGER_WIFI = "trigger_wifi";//
 	public static final String KEY_TRIGGER_WIFI_PARAM_SSID = "trigger_wifi_param_ssid";//
+	public static final String KEY_TRIGGER_DATE_PARAM_DAY1 = "trigger_date_param_day1";//
+	public static final String KEY_TRIGGER_DATE_PARAM_DAY2 = "trigger_date_param_day2";//
+	public static final String KEY_TRIGGER_DATE_PARAM_DAY3 = "trigger_date_param_day3";//
+	public static final String KEY_TRIGGER_DATE_PARAM_DAY4 = "trigger_date_param_day4";//
+	public static final String KEY_TRIGGER_DATE_PARAM_DAY5 = "trigger_date_param_day5";//
+	public static final String KEY_TRIGGER_DATE_PARAM_DAY6 = "trigger_date_param_day6";//
+	public static final String KEY_TRIGGER_DATE_PARAM_DAY7 = "trigger_date_param_day7";//
 	// TEMPLATE_triggers: public static final String KEY_{uppercase} = "{lowercase}";//
 
 	// actions
@@ -87,6 +94,13 @@ public class DiyDbAdapter {
 			KEY_TRIGGER_DATE_PARAM_TO,//
 			KEY_TRIGGER_WIFI,//
 			KEY_TRIGGER_WIFI_PARAM_SSID,//
+			KEY_TRIGGER_DATE_PARAM_DAY1,//
+			KEY_TRIGGER_DATE_PARAM_DAY2,//
+			KEY_TRIGGER_DATE_PARAM_DAY3,//
+			KEY_TRIGGER_DATE_PARAM_DAY4,//
+			KEY_TRIGGER_DATE_PARAM_DAY5,//
+			KEY_TRIGGER_DATE_PARAM_DAY6,//
+			KEY_TRIGGER_DATE_PARAM_DAY7,//
 			// TEMPLATE_triggers: KEY_{uppercase},//
 
 			// actions
@@ -140,6 +154,13 @@ public class DiyDbAdapter {
 			+ KEY_TRIGGER_DATE_PARAM_TO + " text not null,"//
 			+ KEY_TRIGGER_WIFI + " integer not null,"//
 			+ KEY_TRIGGER_WIFI_PARAM_SSID + " text not null,"//
+			+ KEY_TRIGGER_DATE_PARAM_DAY1 + " integer not null,"//
+			+ KEY_TRIGGER_DATE_PARAM_DAY2 + " integer not null,"//
+			+ KEY_TRIGGER_DATE_PARAM_DAY3 + " integer not null,"//
+			+ KEY_TRIGGER_DATE_PARAM_DAY4 + " integer not null,"//
+			+ KEY_TRIGGER_DATE_PARAM_DAY5 + " integer not null,"//
+			+ KEY_TRIGGER_DATE_PARAM_DAY6 + " integer not null,"//
+			+ KEY_TRIGGER_DATE_PARAM_DAY7 + " integer not null,"//
 			// TEMPLATE_triggers: + KEY_{uppercase} + " {dbtype} not null,"//
 
 			// actions
@@ -248,6 +269,13 @@ public class DiyDbAdapter {
 		initialValues.put(KEY_TRIGGER_DATE_PARAM_TO, "");//
 		initialValues.put(KEY_TRIGGER_WIFI, 0);//
 		initialValues.put(KEY_TRIGGER_WIFI_PARAM_SSID, "");//
+		initialValues.put(KEY_TRIGGER_DATE_PARAM_DAY1, 0);//
+		initialValues.put(KEY_TRIGGER_DATE_PARAM_DAY2, 0);//
+		initialValues.put(KEY_TRIGGER_DATE_PARAM_DAY3, 0);//
+		initialValues.put(KEY_TRIGGER_DATE_PARAM_DAY4, 0);//
+		initialValues.put(KEY_TRIGGER_DATE_PARAM_DAY5, 0);//
+		initialValues.put(KEY_TRIGGER_DATE_PARAM_DAY6, 0);//
+		initialValues.put(KEY_TRIGGER_DATE_PARAM_DAY7, 0);//
 		// TEMPLATE_triggers: initialValues.put(KEY_{uppercase}, {default_value});//
 
 		// actions
@@ -345,12 +373,19 @@ public class DiyDbAdapter {
 	}
 
 	public boolean updateDiyTriggers(long rowId,
+			boolean trigger_date_param_day1,//
+			boolean trigger_date_param_day2,//
+			boolean trigger_date_param_day3,//
+			boolean trigger_date_param_day4,//
+			boolean trigger_date_param_day5,//
+			boolean trigger_date_param_day6,//
+			boolean trigger_date_param_day7,//
+			// TEMPLATE_triggers: {vartype} {lowercase},//
 			boolean trigger_date,
 			String trigger_date_param_from,
 			String trigger_date_param_to,
 			boolean trigger_wifi,//
 			String trigger_wifi_param_ssid,//
-			// TEMPLATE_triggers: {vartype} {lowercase},//
 			boolean trigger_location_enabled,
 			double trigger_location_param_latitude,
 			double trigger_location_param_longtitude,
@@ -366,6 +401,13 @@ public class DiyDbAdapter {
 		args.put(KEY_TRIGGER_DATE_PARAM_TO, trigger_date_param_to);
 		args.put(KEY_TRIGGER_WIFI, trigger_wifi);
 		args.put(KEY_TRIGGER_WIFI_PARAM_SSID, trigger_wifi_param_ssid);
+		args.put(KEY_TRIGGER_DATE_PARAM_DAY1, trigger_date_param_day1 ? 1 : 0);
+		args.put(KEY_TRIGGER_DATE_PARAM_DAY2, trigger_date_param_day2 ? 1 : 0);
+		args.put(KEY_TRIGGER_DATE_PARAM_DAY3, trigger_date_param_day3 ? 1 : 0);
+		args.put(KEY_TRIGGER_DATE_PARAM_DAY4, trigger_date_param_day4 ? 1 : 0);
+		args.put(KEY_TRIGGER_DATE_PARAM_DAY5, trigger_date_param_day5 ? 1 : 0);
+		args.put(KEY_TRIGGER_DATE_PARAM_DAY6, trigger_date_param_day6 ? 1 : 0);
+		args.put(KEY_TRIGGER_DATE_PARAM_DAY7, trigger_date_param_day7 ? 1 : 0);
 		// TEMPLATE_triggers: args.put(KEY_{uppercase}, {lowercase}{cmp});
 		// must add '? 1 : 0' manually
 

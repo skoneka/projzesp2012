@@ -7,12 +7,33 @@ adb shell am start -a android.intent.action.DELETE -d package:com.example.fakedi
 - limit slider width ( fsck checkboxes) (zrobione)
 - www + checkbox notification (zrobione)
 - set number as int keyboard (zrobione)
-- debugger wtf?
+//- debugger wtf?
 DONE - volume checkboxes broken
 
 
 add google_play_services_lib.jar to build path when com.google*gms import do not work!
 
+
+                final Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+                /*dodanie do spinnera listy sieci zapisanych w urzadzeniu*/
+                WifiManager wifimanager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                int liczbaSieci = 0;
+
+                for(WifiConfiguration iterator : wifimanager.getConfiguredNetworks()){
+                        liczbaSieci++;
+                }
+
+                final String [] listaSieci = new String[liczbaSieci];
+                int i = 0;
+                for(WifiConfiguration iterator : wifimanager.getConfiguredNetworks()){
+                        listaSieci[i] = iterator.SSID.toString();
+                        i++;
+                }
+
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                                android.R.layout.simple_spinner_item, listaSieci);
+                        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinner.setAdapter(dataAdapter);
 
 
 /insert_DiyDbAdapter.py hello triggers text '""'
@@ -83,3 +104,15 @@ add google_play_services_lib.jar to build path when com.google*gms import do not
 
 ./insert_DiyDbAdapter.py action_notification_param_www_text actions text '""' String ''
 ./insert_DiyDbAdapter.py action_notification_param_www_switch actions integer 0 boolean ' ? 1 : 0'
+
+./insert_diytrigger.py trigger_date_param_day1 CheckBox 'setChecked( 1 == diy.getInt'
+'isChecked'
+./insert_diytrigger.py trigger_date_param_day2 CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
+./insert_diytrigger.py trigger_date_param_day3 CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
+./insert_diytrigger.py trigger_date_param_day4 CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
+./insert_diytrigger.py trigger_date_param_day5 CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
+./insert_diytrigger.py trigger_date_param_day6 CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
+./insert_diytrigger.py trigger_date_param_day7 CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
+
+./insert_DiyDbAdapter.py trigger_date_param_day1 actions integer 0 boolean ' ? 1 : 0'
+
