@@ -152,9 +152,9 @@ public class DiyEditActionsActivity extends Activity {
 				maction_widgettext_param_display_address.isChecked(),//
 				maction_widgettext_param_display_wifissid.isChecked(),//
 				maction_widgettext_param_display_action_description.isChecked(),//
+				maction_soundprofile.isChecked(),//
 				maction_soundprofile_param_profile_sound.isChecked(),//
 				maction_soundprofile_param_profile_vibrations.isChecked(),//
-				maction_soundprofile.isChecked(),//
 				maction_soundprofile_param_volume.getProgress());//
 
 	}	

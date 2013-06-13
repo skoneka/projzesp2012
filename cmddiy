@@ -5,10 +5,10 @@ adb shell am start -a android.intent.action.DELETE -d package:com.example.fakedi
 - ssid
 - repeatable days (triggers) : monday tue wed..
 - limit slider width ( fsck checkboxes) (zrobione)
-- www + checkbox notification
+- www + checkbox notification (zrobione)
 - set number as int keyboard (zrobione)
 - debugger wtf?
-- volume checkboxes broken
+DONE - volume checkboxes broken
 
 
 add google_play_services_lib.jar to build path when com.google*gms import do not work!
