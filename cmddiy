@@ -114,5 +114,16 @@ add google_play_services_lib.jar to build path when com.google*gms import do not
 ./insert_diytrigger.py trigger_date_param_day6 CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
 ./insert_diytrigger.py trigger_date_param_day7 CheckBox 'setChecked( 1 == diy.getInt' 'isChecked'
 
-./insert_DiyDbAdapter.py trigger_date_param_day1 actions integer 0 boolean ' ? 1 : 0'
+./insert_DiyDbAdapter.py trigger_date_param_day1 triggers integer 0 boolean ' ? 1 : 0'
+./insert_DiyDbAdapter.py trigger_date_param_day2 triggers integer 0 boolean ' ? 1 : 0'
+./insert_DiyDbAdapter.py trigger_date_param_day3 triggers integer 0 boolean ' ? 1 : 0'
+
+./insert_DiyDbAdapter.py trigger_date_param_day4 triggers integer 0 boolean ' ? 1 : 0'
+
+./insert_DiyDbAdapter.py trigger_date_param_day5 triggers integer 0 boolean ' ? 1 : 0'
+
+./insert_DiyDbAdapter.py trigger_date_param_day6 triggers integer 0 boolean ' ? 1 : 0'
+
+./insert_DiyDbAdapter.py trigger_date_param_day7 triggers integer 0 boolean ' ? 1 : 0'
+
 

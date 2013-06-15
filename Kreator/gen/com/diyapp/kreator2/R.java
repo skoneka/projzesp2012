@@ -143,165 +143,172 @@ containing a value of this type.
         public static final int profile_white=0x7f02000b;
     }
     public static final class id {
-        public static final int action_notification=0x7f04000d;
-        public static final int action_notification_param_text=0x7f040011;
-        public static final int action_notification_param_title=0x7f04000f;
-        public static final int action_notification_param_www_switch=0x7f040012;
-        public static final int action_notification_param_www_text=0x7f040013;
-        public static final int action_soundprofile=0x7f04001c;
-        public static final int action_soundprofile_param_profile_sound=0x7f04001d;
-        public static final int action_soundprofile_param_profile_vibrations=0x7f04001e;
-        public static final int action_soundprofile_param_volume=0x7f04001f;
-        public static final int action_widgettext=0x7f040014;
-        public static final int action_widgettext_param_display_action_description=0x7f04001b;
-        public static final int action_widgettext_param_display_address=0x7f040019;
-        public static final int action_widgettext_param_display_coordinates=0x7f040018;
-        public static final int action_widgettext_param_display_date=0x7f040017;
-        public static final int action_widgettext_param_display_wifissid=0x7f04001a;
-        public static final int action_widgettext_param_text=0x7f040016;
-        public static final int action_wifi=0x7f040008;
-        public static final int action_wifi_param_ssid=0x7f04000c;
-        public static final int action_wifi_param_turn_off=0x7f04000a;
-        public static final int action_wifi_param_turn_on=0x7f040009;
-        public static final int btnSet=0x7f040005;
-        public static final int button12=0x7f040021;
-        public static final int confirm=0x7f04003a;
-        public static final int datePicker=0x7f040007;
-        public static final int description=0x7f040039;
-        public static final int enabled=0x7f040037;
-        public static final int hybrid=0x7f040004;
-        public static final int label_action_notification_param_text=0x7f040010;
-        public static final int label_action_notification_param_title=0x7f04000e;
-        public static final int label_action_widgettext_param_text=0x7f040015;
-        public static final int label_action_wifi_param_ssid=0x7f04000b;
-        public static final int label_location_example_param_area=0x7f040026;
-        public static final int label_location_example_param_latitude=0x7f040022;
-        public static final int label_location_example_param_longtitude=0x7f040024;
-        public static final int label_trigger_wifi_param_ssid=0x7f040034;
-        public static final int map=0x7f040036;
-        public static final int menu_select_position=0x7f04003d;
-        public static final int menu_settings=0x7f04003c;
-        public static final int none=0x7f040000;
-        public static final int normal=0x7f040001;
-        public static final int satellite=0x7f040002;
-        public static final int terrain=0x7f040003;
-        public static final int text1=0x7f04003b;
-        public static final int textView1=0x7f040029;
-        public static final int timePicker=0x7f040006;
-        public static final int title=0x7f040038;
-        public static final int trigger_date_enabled=0x7f040028;
-        public static final int trigger_date_param_day1=0x7f04002c;
-        public static final int trigger_date_param_day2=0x7f04002d;
-        public static final int trigger_date_param_day3=0x7f04002e;
-        public static final int trigger_date_param_day4=0x7f04002f;
-        public static final int trigger_date_param_day5=0x7f040030;
-        public static final int trigger_date_param_day6=0x7f040031;
-        public static final int trigger_date_param_day7=0x7f040032;
-        public static final int trigger_date_param_from=0x7f04002a;
-        public static final int trigger_date_param_to=0x7f04002b;
-        public static final int trigger_location_enabled=0x7f040020;
-        public static final int trigger_location_param_area=0x7f040027;
-        public static final int trigger_location_param_latitude=0x7f040023;
-        public static final int trigger_location_param_longtitude=0x7f040025;
-        public static final int trigger_wifi_enabled=0x7f040033;
-        public static final int trigger_wifi_param_ssid=0x7f040035;
+        public static final int action_notification=0x7f05000d;
+        public static final int action_notification_param_text=0x7f050011;
+        public static final int action_notification_param_title=0x7f05000f;
+        public static final int action_notification_param_www_switch=0x7f050012;
+        public static final int action_notification_param_www_text=0x7f050013;
+        public static final int action_soundprofile=0x7f05001c;
+        public static final int action_soundprofile_param_profile_sound=0x7f05001d;
+        public static final int action_soundprofile_param_profile_vibrations=0x7f05001e;
+        public static final int action_soundprofile_param_volume=0x7f05001f;
+        public static final int action_widgettext=0x7f050014;
+        public static final int action_widgettext_param_display_action_description=0x7f05001b;
+        public static final int action_widgettext_param_display_address=0x7f050019;
+        public static final int action_widgettext_param_display_coordinates=0x7f050018;
+        public static final int action_widgettext_param_display_date=0x7f050017;
+        public static final int action_widgettext_param_display_wifissid=0x7f05001a;
+        public static final int action_widgettext_param_text=0x7f050016;
+        public static final int action_wifi=0x7f050008;
+        public static final int action_wifi_param_ssid=0x7f05000c;
+        public static final int action_wifi_param_turn_off=0x7f05000a;
+        public static final int action_wifi_param_turn_on=0x7f050009;
+        public static final int btnSet=0x7f050005;
+        public static final int button12=0x7f050021;
+        public static final int confirm=0x7f050040;
+        public static final int datePicker=0x7f050007;
+        public static final int description=0x7f05003f;
+        public static final int enabled=0x7f05003d;
+        public static final int hybrid=0x7f050004;
+        public static final int label_action_notification_param_text=0x7f050010;
+        public static final int label_action_notification_param_title=0x7f05000e;
+        public static final int label_action_widgettext_param_text=0x7f050015;
+        public static final int label_action_wifi_param_ssid=0x7f05000b;
+        public static final int label_location_example_param_area=0x7f050026;
+        public static final int label_location_example_param_latitude=0x7f050022;
+        public static final int label_location_example_param_longtitude=0x7f050024;
+        public static final int label_trigger_wifi_param_ssid=0x7f050034;
+        public static final int map=0x7f050036;
+        public static final int menu_select_position=0x7f050043;
+        public static final int menu_settings=0x7f050042;
+        public static final int none=0x7f050000;
+        public static final int normal=0x7f050001;
+        public static final int satellite=0x7f050002;
+        public static final int terrain=0x7f050003;
+        public static final int text1=0x7f050041;
+        public static final int textView1=0x7f050029;
+        public static final int timePicker=0x7f050006;
+        public static final int title=0x7f05003e;
+        public static final int trigger_date_enabled=0x7f050028;
+        public static final int trigger_date_param_day1=0x7f05002c;
+        public static final int trigger_date_param_day2=0x7f05002d;
+        public static final int trigger_date_param_day3=0x7f05002e;
+        public static final int trigger_date_param_day4=0x7f05002f;
+        public static final int trigger_date_param_day5=0x7f050030;
+        public static final int trigger_date_param_day6=0x7f050031;
+        public static final int trigger_date_param_day7=0x7f050032;
+        public static final int trigger_date_param_from=0x7f05002a;
+        public static final int trigger_date_param_to=0x7f05002b;
+        public static final int trigger_location_enabled=0x7f050020;
+        public static final int trigger_location_param_area=0x7f050027;
+        public static final int trigger_location_param_latitude=0x7f050023;
+        public static final int trigger_location_param_longtitude=0x7f050025;
+        public static final int trigger_wifi_enabled=0x7f050033;
+        public static final int trigger_wifi_param_ssid=0x7f050035;
+        public static final int widget_textview0=0x7f050037;
+        public static final int widget_textview1=0x7f050038;
+        public static final int widget_textview2=0x7f050039;
+        public static final int widget_textview3=0x7f05003a;
+        public static final int widget_textview4=0x7f05003b;
+        public static final int widget_textview5=0x7f05003c;
     }
     public static final class layout {
         public static final int activity_diy_date_picker=0x7f030000;
         public static final int activity_diy_edit_actions=0x7f030001;
         public static final int activity_diy_edit_triggers=0x7f030002;
         public static final int activity_diy_map=0x7f030003;
-        public static final int diy_edit=0x7f030004;
-        public static final int diys_list=0x7f030005;
-        public static final int diys_row=0x7f030006;
-        public static final int tabs_editing=0x7f030007;
+        public static final int activity_main=0x7f030004;
+        public static final int diy_edit=0x7f030005;
+        public static final int diys_list=0x7f030006;
+        public static final int diys_row=0x7f030007;
+        public static final int tabs_editing=0x7f030008;
     }
     public static final class menu {
-        public static final int activity_diy_date_picker=0x7f070000;
-        public static final int activity_diy_edit_actions=0x7f070001;
-        public static final int activity_diy_edit_triggers=0x7f070002;
-        public static final int activity_diy_map=0x7f070003;
-        public static final int activity_main=0x7f070004;
+        public static final int activity_diy_date_picker=0x7f080000;
+        public static final int activity_diy_edit_actions=0x7f080001;
+        public static final int activity_diy_edit_triggers=0x7f080002;
+        public static final int activity_diy_map=0x7f080003;
+        public static final int activity_main=0x7f080004;
     }
     public static final class string {
-        public static final int app_name=0x7f050011;
+        public static final int app_name=0x7f060011;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
          */
-        public static final int auth_client_availability_notification_title=0x7f05000e;
+        public static final int auth_client_availability_notification_title=0x7f06000e;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int auth_client_play_services_err_notification_msg=0x7f05000f;
+        public static final int auth_client_play_services_err_notification_msg=0x7f06000f;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int auth_client_requested_by_msg=0x7f050010;
+        public static final int auth_client_requested_by_msg=0x7f060010;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_button=0x7f050006;
+        public static final int common_google_play_services_enable_button=0x7f060006;
         /**  Message in confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_enable_text=0x7f050005;
+        public static final int common_google_play_services_enable_text=0x7f060005;
         /**  Title of confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_title=0x7f050004;
+        public static final int common_google_play_services_enable_title=0x7f060004;
         /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_button=0x7f050003;
+        public static final int common_google_play_services_install_button=0x7f060003;
         /**  (For phones) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_phone=0x7f050001;
+        public static final int common_google_play_services_install_text_phone=0x7f060001;
         /**  (For tablets) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_tablet=0x7f050002;
+        public static final int common_google_play_services_install_text_tablet=0x7f060002;
         /**  Title of confirmation dialog informing user that they need to install
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_title=0x7f050000;
+        public static final int common_google_play_services_install_title=0x7f060000;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unknown_issue=0x7f050009;
+        public static final int common_google_play_services_unknown_issue=0x7f060009;
         /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_text=0x7f05000b;
+        public static final int common_google_play_services_unsupported_text=0x7f06000b;
         /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_unsupported_title=0x7f05000a;
+        public static final int common_google_play_services_unsupported_title=0x7f06000a;
         /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_button=0x7f05000c;
+        public static final int common_google_play_services_update_button=0x7f06000c;
         /**  Message in confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_update_text=0x7f050008;
+        public static final int common_google_play_services_update_text=0x7f060008;
         /**  Title of confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_title=0x7f050007;
+        public static final int common_google_play_services_update_title=0x7f060007;
         /**  Long form sign-in button text. This is the placeholder text, used if we can't
         find the service-side assets. [CHAR LIMIT=25] 
          */
-        public static final int common_signin_button_text_long=0x7f05000d;
-        public static final int confirm=0x7f050017;
-        public static final int description=0x7f050016;
-        public static final int edit_diy=0x7f050018;
-        public static final int hello_world=0x7f05001c;
-        public static final int menu_delete=0x7f050014;
-        public static final int menu_insert=0x7f050013;
-        public static final int menu_select_position=0x7f05001b;
-        public static final int menu_settings=0x7f05001a;
-        public static final int no_diys=0x7f050012;
-        public static final int title=0x7f050015;
-        public static final int title_activity_diy_date_picker=0x7f050020;
-        public static final int title_activity_diy_edit_actions=0x7f05001d;
-        public static final int title_activity_diy_edit_triggers=0x7f050019;
-        public static final int title_activity_diy_map=0x7f05001e;
-        public static final int title_activity_main=0x7f05001f;
+        public static final int common_signin_button_text_long=0x7f06000d;
+        public static final int confirm=0x7f060017;
+        public static final int description=0x7f060016;
+        public static final int edit_diy=0x7f060018;
+        public static final int hello_world=0x7f06001c;
+        public static final int menu_delete=0x7f060014;
+        public static final int menu_insert=0x7f060013;
+        public static final int menu_select_position=0x7f06001b;
+        public static final int menu_settings=0x7f06001a;
+        public static final int no_diys=0x7f060012;
+        public static final int title=0x7f060015;
+        public static final int title_activity_diy_date_picker=0x7f060020;
+        public static final int title_activity_diy_edit_actions=0x7f06001d;
+        public static final int title_activity_diy_edit_triggers=0x7f060019;
+        public static final int title_activity_diy_map=0x7f06001e;
+        public static final int title_activity_main=0x7f06001f;
     }
     public static final class style {
         /** 
@@ -325,11 +332,14 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
+    }
+    public static final class xml {
+        public static final int hello_widget_provider=0x7f040000;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.

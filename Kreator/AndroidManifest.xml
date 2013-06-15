@@ -38,7 +38,8 @@
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
         <activity
             android:name="com.diyapp.kreator2.Diy"
             android:label="@string/app_name" >
@@ -76,6 +77,26 @@
             android:name="com.diyapp.kreator2.DiyDatePicker"
             android:label="@string/title_activity_diy_date_picker" >
         </activity>
+        <receiver android:name="MainActivity" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/hello_widget_provider" />
+        </receiver>
+
+
+ <receiver android:name="MainActivityProvider" >
+            <intent-filter>
+                <action android:name="CHANGE_TEXT2" />
+                <action android:name="CHANGE_TEXT3" />
+                <action android:name="CHANGE_TEXT4" />
+                <action android:name="CHANGE_TEXT5" />
+                <action android:name="CHANGE_TEXT6" />
+            </intent-filter>
+            </receiver>
     </application>
 
 </manifest>
