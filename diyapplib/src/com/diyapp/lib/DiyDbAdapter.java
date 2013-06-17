@@ -22,7 +22,7 @@ import android.util.Log;
  */
 public class DiyDbAdapter {
 	// increase version after modifying columns, clean and rebuild library AND project!
-	private static final int DATABASE_VERSION = 23;
+	private static final int DATABASE_VERSION = 24;
 
 	private static final String DATABASE_NAME = "data2";
 	private static final String DATABASE_TABLE = "diys";
@@ -186,6 +186,8 @@ public class DiyDbAdapter {
 			+ KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_VIBRATIONS + " integer not null,"//
 			+ KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME + " integer not null);";//
 
+	private static final String DATABASE_CREATE2 = "create table service ( _id integer not null, status integer not null);";
+	
 	private final Context mCtx;
 
 	private static class DatabaseHelper extends SQLiteOpenHelper {
@@ -199,6 +201,11 @@ public class DiyDbAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL(DATABASE_CREATE);
+			db.execSQL(DATABASE_CREATE2);
+			
+			ContentValues initialValues = new ContentValues();
+			initialValues.put("status",0);
+			db.insert(DATABASE_TABLE, null, initialValues);
 		}
 
 		@Override
@@ -206,6 +213,7 @@ public class DiyDbAdapter {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
 			db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
+			db.execSQL("DROP TABLE IF EXISTS service");
 			onCreate(db);
 		}
 	}
@@ -241,6 +249,20 @@ public class DiyDbAdapter {
 		mDbHelper.close();
 	}
 
+	public void setServiceStatus(boolean status) {
+		ContentValues cv = new ContentValues();
+		cv.put("status", status ? 1 : 0);
+		mDb.update("service", cv, "_id=1", null);
+	}
+	
+	public boolean getServiceStatus() {
+		mDb.query("service", new String[]{"status"}, null, null, null, null, null).moveToFirst();
+		Cursor c = mDb.query("service", new String[]{"status"}, null, null, null, null, null);
+		int myint = c.getInt(c.getColumnIndexOrThrow("status"));
+		Boolean b = (myint != 0);
+		return b;
+	}
+	
 	/**
 	 * Create a new diy using the title and description provided. If the diy is
 	 * successfully created return the new rowId for that diy, otherwise return
