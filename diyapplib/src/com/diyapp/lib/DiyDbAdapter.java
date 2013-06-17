@@ -2,6 +2,15 @@ package com.diyapp.lib;
 
 /* to insert new columns use insert_DiyDbAdapter.py script */
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -21,8 +30,8 @@ import android.util.Log;
  * recommended).
  */
 public class DiyDbAdapter {
-	// increase version after modifying columns, clean and rebuild library AND project!
-	private static final int DATABASE_VERSION = 25;
+  // increase version after modifying columns, clean and rebuild library AND project!
+	private static final int DATABASE_VERSION = 26;
 
 	private static final String DATABASE_NAME = "data2";
 	private static final String DATABASE_TABLE = "diys";
@@ -186,9 +195,7 @@ public class DiyDbAdapter {
 			+ KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_VIBRATIONS + " integer not null,"//
 			+ KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME + " integer not null);";//
 
-	private static final String DATABASE_CREATE2 = "create table service ( _id integer not null, " +
-			"status integer not null," +
-			"msg text not null);";
+	private static final String DATABASE_CREATE2 = "create table service ( _id integer not null, status integer not null);";
 	
 	private final Context mCtx;
 
@@ -207,8 +214,10 @@ public class DiyDbAdapter {
 			
 			ContentValues initialValues = new ContentValues();
 			initialValues.put("status",0);
-			initialValues.put("msg","");
-			db.insert(DATABASE_TABLE, null, initialValues);
+			db.insert("service", null, initialValues);
+			initialValues = new ContentValues();
+			initialValues.put("status",0);
+			db.insert("service", null, initialValues);
 		}
 
 		@Override
@@ -253,29 +262,77 @@ public class DiyDbAdapter {
 	}
 
 	public void setServiceStatus(boolean status) {
+		File file = new File(mCtx.getFilesDir(), "service-lock");
+		try {
+		if (status) {
+			file.createNewFile();
+			Log.d("db", "creating service-lock");
+		}
+		else
+			file.delete();
+			Log.d("db","removing service-lock");
+		}
+		catch (IOException x) {};
+
+/*
 		ContentValues cv = new ContentValues();
 		cv.put("status", status ? 1 : 0);
-		mDb.update("service", cv, "_id=1", null);
-	}
-	
-	public boolean getServiceStatus() {
-		mDb.query("service", new String[]{"status"}, null, null, null, null, null).moveToFirst();
-		Cursor c = mDb.query("service", new String[]{"status"}, null, null, null, null, null);
-		int myint = c.getInt(c.getColumnIndexOrThrow("status"));
-		Boolean b = (myint != 0);
-		return b;
+		mDb.update("service", cv, "_id=0", null);
+		*/
 	}
 	
 	public void setServiceMsg(String msg) {
-		ContentValues cv = new ContentValues();
-		cv.put("msg", msg);
-		mDb.update("service", cv, "_id=1", null);
+		File file = new File(mCtx.getFilesDir(), "service-msg");
+		String filename = file.getAbsolutePath();
+
+		try {
+			BufferedWriter buf = new BufferedWriter(new FileWriter(filename));
+			buf.write(msg);
+			buf.close();
+		} catch (Exception e) {
+		  e.printStackTrace();
+		}
+
 	}
 	
 	public String getServiceMsg() {
-		mDb.query("service", new String[]{"msg"}, null, null, null, null, null).moveToFirst();
-		Cursor c = mDb.query("service", new String[]{"msg"}, null, null, null, null, null);
-		return c.getString(c.getColumnIndexOrThrow("msg"));
+		
+		File file = new File(mCtx.getFilesDir(), "service-msg");
+		String filename = file.getAbsolutePath();
+		
+		try {
+			BufferedReader buf = new BufferedReader(new FileReader(filename));
+			return buf.readLine();
+		} catch (Exception e) {
+		  e.printStackTrace();
+			return "";
+		}
+
+	}
+	
+	public boolean getServiceStatus() {
+
+		File file = new File(mCtx.getFilesDir(), "service-lock");
+		Log.d("db","file.exists");
+		Log.d("db",Boolean.toString(file.exists()));
+		Log.d("db",file.getPath());
+		return file.exists();
+		/*
+		Cursor c = mDb.query(true, "service", new String[]{"_id","status"}, "_id=0", null, null, null, null, null);
+		c.moveToFirst();
+		if (c != null) {
+			Log.d("db", "kursor nie jest nulem!");
+			return (c.getInt(c.getColumnIndexOrThrow("status")) !=0);
+		}
+		return true;
+		*/
+		/*
+		c.moveToFirst();
+		c.getColumnIndexOrThrow("status");
+		int myint = c.getInt(c.getColumnIndexOrThrow("status"));
+		Boolean b = (myint != 0);
+		return b;
+		*/
 	}
 	
 	/**
