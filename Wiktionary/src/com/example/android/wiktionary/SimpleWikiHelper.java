@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.simplewiktionary;
+package com.example.android.wiktionary;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -32,7 +32,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.util.Log;
-import com.diyapp.widget.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -46,13 +45,6 @@ import java.io.InputStream;
  */
 public class SimpleWikiHelper {
     private static final String TAG = "SimpleWikiHelper";
-
-    /**
-     * Regular expression that splits "Word of the day" entry into word
-     * name, word type, and the first description bullet point.
-     */
-    public static final String WORD_OF_DAY_REGEX =
-            "(?s)\\{\\{wotd\\|(.+?)\\|(.+?)\\|([^#\\|]+).*?\\}\\}";
 
     /**
      * Partial URL to use when requesting the detailed entry for a specific
@@ -212,4 +204,5 @@ public class SimpleWikiHelper {
             throw new ApiException("Problem communicating with API", e);
         }
     }
+
 }

@@ -77,7 +77,7 @@ public class Diy extends ListActivity {
 			// get instance of the aidl binder
 			mRemoteService = IRemoteService.Stub.asInterface(service);
 			try {
-				String message=mRemoteService.sayHello("Mina");
+				String message=mRemoteService.sayHello("Kamyk");
 				Log.v("message", message);
 			} catch (RemoteException e) {
 				Log.e("RemoteException", e.toString());
@@ -95,19 +95,6 @@ public class Diy extends ListActivity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.diys_list);
-		
-
-        if(!isMyServiceRunning()){
-			System.out.println("Service nie w�aczony");
-		Intent serviceIntent=new Intent();
-        serviceIntent.setClassName("pl.diya.execute2", "pl.diya.execute2.Execute");
-        boolean ok=bindService(serviceIntent, mServiceConnection,Context.BIND_AUTO_CREATE);
-        Log.v("ok", String.valueOf(ok));
-		
-        }
-        else
-			System.out.println("Service w��czony");
-		
 		mDbHelper = new DiyDbAdapter(this);
 		mDbHelper.open();
 		fillData();
@@ -118,6 +105,29 @@ public class Diy extends ListActivity {
 			Log.v("diy", string);
 		}
 		Log.v("diy", "kreator");
+
+		//if(!mDbHelper.getServiceStatus()){
+			
+			System.out.println("Service nie w�aczony");
+		Intent serviceIntent=new Intent();
+		
+        serviceIntent.setClassName("pl.diya.execute2", "pl.diya.execute2.Execute");
+        
+        stopService(serviceIntent);
+        
+        boolean ok=bindService(serviceIntent, mServiceConnection,Context.BIND_AUTO_CREATE);
+        if(ok)
+        	mDbHelper.setServiceStatus(true);
+        Log.v("ok", String.valueOf(ok));
+        
+        //}
+		
+        //else
+		//	System.out.println("Service w��czony");
+
+		System.out.println("Drugi raz:");
+		//isMyServiceRunning();
+		
 
 	}
 
@@ -130,8 +140,9 @@ public class Diy extends ListActivity {
 	private boolean isMyServiceRunning() {
 	    ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
 	    for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-	    	//System.out.println(service.service.getClassName());
+	    	System.out.println(service.service.getClassName());
 	        if ("pl.diya.execute2.Execute".equals(service.service.getClassName())) {
+	        	System.out.println("Equals");
 	            return true;
 	        }
 	    }

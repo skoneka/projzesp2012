@@ -397,7 +397,7 @@ public class Triggers extends Activity{
 						//if(column.equals(DiyDbAdapter.KEY_TRIGGER_WIFI)) {
 							SSID_szukane = c.getString(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_WIFI_PARAM_SSID));
 
-							System.out.println(" trigger czy podlaczono do danej sieci wifi "+SSID_szukane);
+							//System.out.println(" trigger czy podlaczono do danej sieci wifi "+SSID_szukane);
 						
 						//}
 					}
@@ -448,7 +448,7 @@ public class Triggers extends Activity{
 							longitude_szukane = c.getDouble(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_LOCATION_PARAM_LONGTITUDE));
 							promien_szukane = c.getDouble(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_TRIGGER_LOCATION_PARAM_AREA)); 
 							
-							System.out.println(" trigger czy w danym miejscu " + latitude_szukane +" "+ longitude_szukane + " " + promien_szukane);
+							//System.out.println(" trigger czy w danym miejscu " + latitude_szukane +" "+ longitude_szukane + " " + promien_szukane);
 						
 						//}
 					}
@@ -465,11 +465,11 @@ public class Triggers extends Activity{
 
 		int a=0;
 		
-		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, getIntent(), a));
-		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, getIntent(), a));
-		//to wyzej dwa razy, bo czasami nie odswieza od razu
+		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, new Intent(), a));
+		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, new Intent(), a));
+		//to wyzej dwa razy, bo czasami nie odswieza od razu 
 		Location location = locationManager.getLastKnownLocation(providerStr);
-		
+
 		double latitude = location.getLatitude();//n-s
 		double longitude = location.getLongitude();//e-w
 		
@@ -500,8 +500,8 @@ public class Triggers extends Activity{
 		//String providerStr = LocationManager.PASSIVE_PROVIDER;
 		int a=0;
 		System.out.println("qwe2");
-		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, new Intent(), a));
-		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, new Intent(), a));
+		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, getIntent(), a));
+		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, getIntent(), a));
 		//to wyzej dwa razy, bo czasami nie odswieza od razu
 		System.out.println("qwe3");
 		Location location = locationManager.getLastKnownLocation(providerStr);

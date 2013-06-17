@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -209,6 +210,8 @@ public class Actions  extends Activity{
 		
 		int glosnosc_zadana = 0;
 		System.out.println("basia1");
+
+		System.out.println("basia1.5");
 		Cursor c = mDbHelper.fetchAllDiy();
 		if (c.moveToFirst()) {
 			do {
@@ -224,7 +227,6 @@ public class Actions  extends Activity{
 				}
 			} while (c.moveToNext());
 		}
-		System.out.println("basia1.5");
 		
 
 		
@@ -295,6 +297,8 @@ public class Actions  extends Activity{
 						tickerText_pobrany = c.getString(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_NOTIFICATION_PARAM_TEXT));
 						notificationTitle_pobrany = c.getString(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_NOTIFICATION_PARAM_TEXT));
 						notificationText_pobrany = c.getString(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_NOTIFICATION_PARAM_TITLE));
+						czyWWW = c.getInt(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_NOTIFICATION_PARAM_WWW_SWITCH));
+						adresStrony_pobrany = c.getString(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_NOTIFICATION_PARAM_WWW_TEXT));
 					}
 					
 				}
@@ -311,17 +315,22 @@ public class Actions  extends Activity{
 
 	    Notification notification = new Notification(icon, tickerText_pobrany, when);
 	    
+	    mDbHelper.setServiceMsg(tickerText_pobrany);
+	    Log.d("Execute Actions", "setServiceMsg");
+	    Log.d("Execute Actions", mDbHelper.getServiceMsg());
+	    
+	    
 
 	    notification.flags |= Notification.FLAG_AUTO_CANCEL;//powiadomienie zniknie gdy kliniemy na nie
 	      /*
-	       * Flagi powiadomieï¿½
+	       * Flagi powiadomieñ
 
-			Kolejnym waï¿½nym elementem sï¿½ flagi naszego powiadomienia. Odpowiadajï¿½ one za kilka rï¿½nych ustawieï¿½. Oto niektï¿½re z nich:
+			Kolejnym wa¿nym elementem s¹ flagi naszego powiadomienia. Odpowiadaj¹ one za kilka ró¿nych ustawieñ. Oto niektóre z nich:
 
-	    		Notification.FLAG_AUTO_CANCEL ï¿½ sprawia, ï¿½e powiadomienie znika zaraz po klikniï¿½ciu,
-	    		Notification.FLAG_NO_CLEAR ï¿½ powiadomienie nie zostanie usuniï¿½te po klikniï¿½ciu w przycisk Clear/Wyczyï¿½ï¿½,
-	    		Notification.FLAG_FOREGROUND_SERVICE ï¿½ powiadomienie ktï¿½re przychodzi od aktualnie dziaï¿½ajï¿½cego serwisu,
-	    		Notification.FLAG_ONGOING_EVENT ï¿½ powiadomienie przychodzï¿½ce z ciï¿½gle jeszcze dziaï¿½ajï¿½cego ï¿½rï¿½dï¿½a (oczekujï¿½ce poï¿½ï¿½czenie telefoniczne).
+	    		Notification.FLAG_AUTO_CANCEL – sprawia, ¿e powiadomienie znika zaraz po klikniêciu,
+	    		Notification.FLAG_NO_CLEAR – powiadomienie nie zostanie usuniête po klikniêciu w przycisk Clear/Wyczyœæ,
+	    		Notification.FLAG_FOREGROUND_SERVICE – powiadomienie które przychodzi od aktualnie dzia³aj¹cego serwisu,
+	    		Notification.FLAG_ONGOING_EVENT – powiadomienie przychodz¹ce z ci¹gle jeszcze dzia³aj¹cego Ÿród³a (oczekuj¹ce po³¹czenie telefoniczne).
 
 	       */
 	    
@@ -334,7 +343,7 @@ public class Actions  extends Activity{
 	    
 	    else{
 	    	
-	    	Intent intent = null;
+	    	Intent intent = new Intent();
 	    	PendingIntent pendingIntent = PendingIntent.getActivity(mc.getApplicationContext(), 0, intent, 0);
 		    notification.setLatestEventInfo(mc.getApplicationContext(), notificationTitle_pobrany, notificationText_pobrany, pendingIntent);
 	    }
@@ -352,10 +361,15 @@ public class Actions  extends Activity{
 //			notification.sound = Uri.parse("file:///sdcard/.ringtonetrimmer/ringtones/ring.mp3"); -- dowolny dzwiek z tel
 		
 		int MY_NOTIFICATION = 1;
-		
+		try{
 		notificationManager.notify(MY_NOTIFICATION, notification);
 		
 		return true;
+		}
+		catch(Exception e){
+			System.out.println(e.toString());
+		}
+		return false;
 	}
 	
 	public boolean wyswietlPowiadomienieTest(String tickerText_pobrany, String notificationTitle_pobrany, String notificationText_pobrany, int czyWWW, String adresStrony_pobrany){
@@ -381,18 +395,18 @@ public class Actions  extends Activity{
 	    //notification.number = 3;
 	    notification.flags |= Notification.FLAG_AUTO_CANCEL;//powiadomienie zniknie gdy kliniemy na nie
 	      /*
-	       * Flagi powiadomieï¿½
+	       * Flagi powiadomieñ
 
-			Kolejnym waï¿½nym elementem sï¿½ flagi naszego powiadomienia. Odpowiadajï¿½ one za kilka rï¿½nych ustawieï¿½. Oto niektï¿½re z nich:
+			Kolejnym wa¿nym elementem s¹ flagi naszego powiadomienia. Odpowiadaj¹ one za kilka ró¿nych ustawieñ. Oto niektóre z nich:
 
-	    		Notification.FLAG_AUTO_CANCEL ï¿½ sprawia, ï¿½e powiadomienie znika zaraz po klikniï¿½ciu,
-	    		Notification.FLAG_NO_CLEAR ï¿½ powiadomienie nie zostanie usuniï¿½te po klikniï¿½ciu w przycisk Clear/Wyczyï¿½ï¿½,
-	    		Notification.FLAG_FOREGROUND_SERVICE ï¿½ powiadomienie ktï¿½re przychodzi od aktualnie dziaï¿½ajï¿½cego serwisu,
-	    		Notification.FLAG_ONGOING_EVENT ï¿½ powiadomienie przychodzï¿½ce z ciï¿½gle jeszcze dziaï¿½ajï¿½cego ï¿½rï¿½dï¿½a (oczekujï¿½ce poï¿½ï¿½czenie telefoniczne).
+	    		Notification.FLAG_AUTO_CANCEL – sprawia, ¿e powiadomienie znika zaraz po klikniêciu,
+	    		Notification.FLAG_NO_CLEAR – powiadomienie nie zostanie usuniête po klikniêciu w przycisk Clear/Wyczyœæ,
+	    		Notification.FLAG_FOREGROUND_SERVICE – powiadomienie które przychodzi od aktualnie dzia³aj¹cego serwisu,
+	    		Notification.FLAG_ONGOING_EVENT – powiadomienie przychodz¹ce z ci¹gle jeszcze dzia³aj¹cego Ÿród³a (oczekuj¹ce po³¹czenie telefoniczne).
 
 	       */
 	    //String notificationTitle = "Takie sobie";
-	    //String notificationText = "Klikniï¿½cie wï¿½ï¿½cza iSODa w przeglï¿½darce";
+	    //String notificationText = "Klikniêcie w³¹cza iSODa w przegl¹darce";
 	    //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.isod.ee.pw.edu.pl"));
 	    
 	    if(czyWWW == 1){
