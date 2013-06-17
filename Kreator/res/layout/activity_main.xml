@@ -64,4 +64,11 @@
      android:textColor="@android:color/black"
      android:textSize="12sp"
      android:background="#fff3f3f3"/>
+
+      <Button
+          android:id="@+id/button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Refresh" />
+
  </LinearLayout>

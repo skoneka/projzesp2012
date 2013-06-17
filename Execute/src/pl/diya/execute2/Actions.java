@@ -210,13 +210,22 @@ public class Actions  extends Activity{
 		int glosnosc_zadana = 0;
 		System.out.println("basia1");
 		Cursor c = mDbHelper.fetchAllDiy();
-		System.out.println("basia1.5");
-		if(c.getInt(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ROWID)) == idDIY){
-			System.out.println("basia1.9");
-			glosnosc_zadana = c.getInt(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME));
-			System.out.println("basia2");
-			System.out.println(glosnosc_zadana);
+		if (c.moveToFirst()) {
+			do {
+				for (String column : DiyDbAdapter.COLUMNS) {
+					
+					if(c.getInt(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ROWID)) == idDIY){
+						System.out.println("basia1.9");
+						glosnosc_zadana = c.getInt(c.getColumnIndexOrThrow(DiyDbAdapter.KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME));
+						System.out.println("basia2");
+						System.out.println(glosnosc_zadana);
+					}
+					
+				}
+			} while (c.moveToNext());
 		}
+		System.out.println("basia1.5");
+		
 
 		
 		/*koniec pobierania*/
@@ -305,14 +314,14 @@ public class Actions  extends Activity{
 
 	    notification.flags |= Notification.FLAG_AUTO_CANCEL;//powiadomienie zniknie gdy kliniemy na nie
 	      /*
-	       * Flagi powiadomieñ
+	       * Flagi powiadomieï¿½
 
-			Kolejnym wa¿nym elementem s¹ flagi naszego powiadomienia. Odpowiadaj¹ one za kilka ró¿nych ustawieñ. Oto niektóre z nich:
+			Kolejnym waï¿½nym elementem sï¿½ flagi naszego powiadomienia. Odpowiadajï¿½ one za kilka rï¿½nych ustawieï¿½. Oto niektï¿½re z nich:
 
-	    		Notification.FLAG_AUTO_CANCEL – sprawia, ¿e powiadomienie znika zaraz po klikniêciu,
-	    		Notification.FLAG_NO_CLEAR – powiadomienie nie zostanie usuniête po klikniêciu w przycisk Clear/Wyczyœæ,
-	    		Notification.FLAG_FOREGROUND_SERVICE – powiadomienie które przychodzi od aktualnie dzia³aj¹cego serwisu,
-	    		Notification.FLAG_ONGOING_EVENT – powiadomienie przychodz¹ce z ci¹gle jeszcze dzia³aj¹cego Ÿród³a (oczekuj¹ce po³¹czenie telefoniczne).
+	    		Notification.FLAG_AUTO_CANCEL ï¿½ sprawia, ï¿½e powiadomienie znika zaraz po klikniï¿½ciu,
+	    		Notification.FLAG_NO_CLEAR ï¿½ powiadomienie nie zostanie usuniï¿½te po klikniï¿½ciu w przycisk Clear/Wyczyï¿½ï¿½,
+	    		Notification.FLAG_FOREGROUND_SERVICE ï¿½ powiadomienie ktï¿½re przychodzi od aktualnie dziaï¿½ajï¿½cego serwisu,
+	    		Notification.FLAG_ONGOING_EVENT ï¿½ powiadomienie przychodzï¿½ce z ciï¿½gle jeszcze dziaï¿½ajï¿½cego ï¿½rï¿½dï¿½a (oczekujï¿½ce poï¿½ï¿½czenie telefoniczne).
 
 	       */
 	    
@@ -372,18 +381,18 @@ public class Actions  extends Activity{
 	    //notification.number = 3;
 	    notification.flags |= Notification.FLAG_AUTO_CANCEL;//powiadomienie zniknie gdy kliniemy na nie
 	      /*
-	       * Flagi powiadomieñ
+	       * Flagi powiadomieï¿½
 
-			Kolejnym wa¿nym elementem s¹ flagi naszego powiadomienia. Odpowiadaj¹ one za kilka ró¿nych ustawieñ. Oto niektóre z nich:
+			Kolejnym waï¿½nym elementem sï¿½ flagi naszego powiadomienia. Odpowiadajï¿½ one za kilka rï¿½nych ustawieï¿½. Oto niektï¿½re z nich:
 
-	    		Notification.FLAG_AUTO_CANCEL – sprawia, ¿e powiadomienie znika zaraz po klikniêciu,
-	    		Notification.FLAG_NO_CLEAR – powiadomienie nie zostanie usuniête po klikniêciu w przycisk Clear/Wyczyœæ,
-	    		Notification.FLAG_FOREGROUND_SERVICE – powiadomienie które przychodzi od aktualnie dzia³aj¹cego serwisu,
-	    		Notification.FLAG_ONGOING_EVENT – powiadomienie przychodz¹ce z ci¹gle jeszcze dzia³aj¹cego Ÿród³a (oczekuj¹ce po³¹czenie telefoniczne).
+	    		Notification.FLAG_AUTO_CANCEL ï¿½ sprawia, ï¿½e powiadomienie znika zaraz po klikniï¿½ciu,
+	    		Notification.FLAG_NO_CLEAR ï¿½ powiadomienie nie zostanie usuniï¿½te po klikniï¿½ciu w przycisk Clear/Wyczyï¿½ï¿½,
+	    		Notification.FLAG_FOREGROUND_SERVICE ï¿½ powiadomienie ktï¿½re przychodzi od aktualnie dziaï¿½ajï¿½cego serwisu,
+	    		Notification.FLAG_ONGOING_EVENT ï¿½ powiadomienie przychodzï¿½ce z ciï¿½gle jeszcze dziaï¿½ajï¿½cego ï¿½rï¿½dï¿½a (oczekujï¿½ce poï¿½ï¿½czenie telefoniczne).
 
 	       */
 	    //String notificationTitle = "Takie sobie";
-	    //String notificationText = "Klikniêcie w³¹cza iSODa w przegl¹darce";
+	    //String notificationText = "Klikniï¿½cie wï¿½ï¿½cza iSODa w przeglï¿½darce";
 	    //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.isod.ee.pw.edu.pl"));
 	    
 	    if(czyWWW == 1){

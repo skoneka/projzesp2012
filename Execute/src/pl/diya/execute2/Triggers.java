@@ -14,6 +14,7 @@ import pl.diya.execute2.R;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.location.Address;
 import android.location.Geocoder;
@@ -499,8 +500,8 @@ public class Triggers extends Activity{
 		//String providerStr = LocationManager.PASSIVE_PROVIDER;
 		int a=0;
 		System.out.println("qwe2");
-		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, getIntent(), a));
-		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, getIntent(), a));
+		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, new Intent(), a));
+		locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, PendingIntent.getService(mc.getApplicationContext(), a, new Intent(), a));
 		//to wyzej dwa razy, bo czasami nie odswieza od razu
 		System.out.println("qwe3");
 		Location location = locationManager.getLastKnownLocation(providerStr);

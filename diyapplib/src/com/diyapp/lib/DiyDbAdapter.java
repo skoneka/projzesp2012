@@ -22,7 +22,7 @@ import android.util.Log;
  */
 public class DiyDbAdapter {
 	// increase version after modifying columns, clean and rebuild library AND project!
-	private static final int DATABASE_VERSION = 24;
+	private static final int DATABASE_VERSION = 25;
 
 	private static final String DATABASE_NAME = "data2";
 	private static final String DATABASE_TABLE = "diys";
@@ -186,7 +186,9 @@ public class DiyDbAdapter {
 			+ KEY_ACTION_SOUNDPROFILE_PARAM_PROFILE_VIBRATIONS + " integer not null,"//
 			+ KEY_ACTION_SOUNDPROFILE_PARAM_VOLUME + " integer not null);";//
 
-	private static final String DATABASE_CREATE2 = "create table service ( _id integer not null, status integer not null);";
+	private static final String DATABASE_CREATE2 = "create table service ( _id integer not null, " +
+			"status integer not null," +
+			"msg text not null);";
 	
 	private final Context mCtx;
 
@@ -205,6 +207,7 @@ public class DiyDbAdapter {
 			
 			ContentValues initialValues = new ContentValues();
 			initialValues.put("status",0);
+			initialValues.put("msg","");
 			db.insert(DATABASE_TABLE, null, initialValues);
 		}
 
@@ -261,6 +264,18 @@ public class DiyDbAdapter {
 		int myint = c.getInt(c.getColumnIndexOrThrow("status"));
 		Boolean b = (myint != 0);
 		return b;
+	}
+	
+	public void setServiceMsg(String msg) {
+		ContentValues cv = new ContentValues();
+		cv.put("msg", msg);
+		mDb.update("service", cv, "_id=1", null);
+	}
+	
+	public String getServiceMsg() {
+		mDb.query("service", new String[]{"msg"}, null, null, null, null, null).moveToFirst();
+		Cursor c = mDb.query("service", new String[]{"msg"}, null, null, null, null, null);
+		return c.getString(c.getColumnIndexOrThrow("msg"));
 	}
 	
 	/**
