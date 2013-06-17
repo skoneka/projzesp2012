@@ -99,6 +99,11 @@
             android:layout_height="2px"
             android:background="@drawable/i1x1" />
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:background="@drawable/i1x1black" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -137,7 +142,6 @@
                 android:layout_weight="1"
                 android:ems="10" />
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -185,6 +189,11 @@
             android:layout_width="fill_parent"
             android:layout_height="2px"
             android:background="@drawable/i1x1" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:background="@drawable/i1x1black" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -273,6 +282,11 @@
             android:layout_width="fill_parent"
             android:layout_height="2px"
             android:background="@drawable/i1x1" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:background="@drawable/i1x1black" />
 
         <LinearLayout
             android:layout_width="match_parent"

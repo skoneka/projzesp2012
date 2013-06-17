@@ -95,6 +95,11 @@
             android:layout_height="2px"
             android:background="@drawable/i1x1" />
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:background="@drawable/i1x1black" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -174,10 +179,12 @@
                 android:layout_height="wrap_content"
                 android:text="Day 3" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
+
             <CheckBox
                 android:id="@+id/trigger_date_param_day4"
                 android:layout_width="wrap_content"
@@ -195,11 +202,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Day 6" />
-         </LinearLayout>
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
+
             <CheckBox
                 android:id="@+id/trigger_date_param_day7"
                 android:layout_width="wrap_content"
@@ -212,6 +221,11 @@
             android:layout_width="fill_parent"
             android:layout_height="2px"
             android:background="@drawable/i1x1" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:background="@drawable/i1x1black" />
 
         <LinearLayout
             android:layout_width="match_parent"

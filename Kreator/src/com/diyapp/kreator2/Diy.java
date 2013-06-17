@@ -18,6 +18,8 @@ package com.diyapp.kreator2;
 
 import com.diyapp.kreator2.R;
 
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -60,6 +62,8 @@ public class Diy extends ListActivity {
 	//uzywanie service
 	IRemoteService mRemoteService;
 	
+	
+		
 	private ServiceConnection mServiceConnection=new ServiceConnection() {
 
 		@Override
@@ -82,6 +86,7 @@ public class Diy extends ListActivity {
 		}
 	};
 	
+	
 	//koniec uzywania service
 
 	/** Called when the activity is first created. */
@@ -91,10 +96,17 @@ public class Diy extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.diys_list);
 		
+
+        if(!isMyServiceRunning()){
+			System.out.println("Service nie w�aczony");
 		Intent serviceIntent=new Intent();
         serviceIntent.setClassName("pl.diya.execute2", "pl.diya.execute2.Execute");
         boolean ok=bindService(serviceIntent, mServiceConnection,Context.BIND_AUTO_CREATE);
         Log.v("ok", String.valueOf(ok));
+		
+        }
+        else
+			System.out.println("Service w��czony");
 		
 		mDbHelper = new DiyDbAdapter(this);
 		mDbHelper.open();
@@ -115,7 +127,16 @@ public class Diy extends ListActivity {
 		if (mDbHelper != null)
 			mDbHelper.close();
 	}
-
+	private boolean isMyServiceRunning() {
+	    ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+	    for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+	    	//System.out.println(service.service.getClassName());
+	        if ("pl.diya.execute2.Execute".equals(service.service.getClassName())) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
 	private void fillData() {
 		// Get all of the rows from the database and create the item list
 		Cursor diysCursor = mDbHelper.fetchAllDiy();

@@ -90,13 +90,20 @@
 
  <receiver android:name="MainActivityProvider" >
             <intent-filter>
+                <action android:name="CHANGE_TEXT0" />
+                <action android:name="CHANGE_TEXT1" />
                 <action android:name="CHANGE_TEXT2" />
                 <action android:name="CHANGE_TEXT3" />
                 <action android:name="CHANGE_TEXT4" />
-                <action android:name="CHANGE_TEXT5" />
-                <action android:name="CHANGE_TEXT6" />
+                                <action android:name="CHANGE_ACTIVITIES" />
+                          <action android:name="CHANGE_DESCRIPTION" />
+                          <action android:name="CHANGE_ACTVITYINTABLE" />
+
+
+
             </intent-filter>
             </receiver>
+ 
     </application>
 
 </manifest>
